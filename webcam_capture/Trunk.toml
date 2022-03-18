@@ -1,0 +1,14 @@
+# 配置参考: https://github.com/thedodd/trunk/blob/master/Trunk.toml
+[[hooks]]
+# This hook example shows all the current available fields. It will execute the equivalent of
+# typing "echo Hello Trunk!" right at the start of the build process (even before the HTML file
+# is read). By default, the command is spawned directly and no shell is used.
+stage = "build"
+command = "tailwindcss"
+command_arguments = [
+    "build",
+    "-i",
+    "index.css",
+    "-o",
+    "dist/.stage/tailwind.css"
+]
