@@ -19,7 +19,6 @@ fn main() {
 #[component]
 fn Video<G: Html>(ctx: ScopeRef) -> View<G> {
     let video_ref = ctx.create_node_ref();
-    // ctx.spawn_future(async move {
     ctx.spawn_local(async move {
         let el = video_ref.get::<DomNode>().unchecked_into();
         let video_stream = VideoStream::new(el);
@@ -34,7 +33,6 @@ fn Video<G: Html>(ctx: ScopeRef) -> View<G> {
             }))
             .await;
     });
-    // });
     view! {ctx,
         div {
             video(
@@ -46,4 +44,6 @@ fn Video<G: Html>(ctx: ScopeRef) -> View<G> {
             )
         }
     }
+
+    // 视频源 https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/bg3.mp4
 }
